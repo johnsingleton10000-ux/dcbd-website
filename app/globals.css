@@ -4,43 +4,192 @@
 
 :root {
   color-scheme: dark;
+  --bg: #050505;
+  --gold: #d4af37;
+  --gold-bright: #ffd700;
+  --purple: #8a2be2;
+  --purple-neon: #c026d3;
+  --lime: #b7ff2a;
+  --orange: #f97316;
+  --ink: #f8f5f0;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
-  background: #050505;
+  background: var(--bg);
 }
 
 body {
   margin: 0;
-  background: #050505;
-  color: #ffffff;
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
 ::selection {
-  background: #84cc16;
+  background: var(--gold-bright);
   color: #000;
 }
 
-.card-glow {
-  box-shadow: 0 0 70px rgba(132, 204, 22, 0.16), 0 0 40px rgba(124, 58, 237, 0.12);
+.font-display {
+  font-family: var(--font-bebas), Impact, Arial Black, sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.font-premium {
+  font-family: var(--font-cinzel), Georgia, serif;
 }
 
 .grit-bg {
   background-image:
-    radial-gradient(circle at top left, rgba(132, 204, 22, 0.18), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.24), transparent 36%),
-    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
-    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
-  background-size: auto, auto, 42px 42px, 42px 42px;
+    radial-gradient(circle at top left, rgba(138, 43, 226, 0.22), transparent 34%),
+    radial-gradient(circle at top right, rgba(212, 175, 55, 0.14), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(183, 255, 42, 0.08), transparent 36%),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: auto, auto, auto, 46px 46px, 46px 46px;
+}
+
+.gate-bg {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(138, 43, 226, 0.45), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(183, 255, 42, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 90%, rgba(88, 28, 135, 0.4), transparent 32%),
+    linear-gradient(#07040c, #050505);
+}
+
+.card-glow {
+  box-shadow: 0 0 70px rgba(138, 43, 226, 0.18), 0 0 36px rgba(212, 175, 55, 0.1);
+}
+
+.gold-glow {
+  box-shadow: 0 0 48px rgba(212, 175, 55, 0.28);
+}
+
+.purple-glow {
+  box-shadow: 0 0 42px rgba(138, 43, 226, 0.45);
+}
+
+.rev-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #ffe566, #f5c400);
+  color: #111;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 1rem;
+  cursor: pointer;
+}
+
+.rev-btn:hover { filter: brightness(1.06); }
+.rev-btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.price-ribbon {
+  position: absolute;
+  top: 14px;
+  left: -8px;
+  z-index: 2;
+  background: linear-gradient(180deg, #a855f7, #6d28d9);
+  color: white;
+  font-weight: 900;
+  padding: 0.35rem 0.9rem 0.35rem 0.75rem;
+  clip-path: polygon(0 0, 100% 0, 92% 50%, 100% 100%, 0 100%);
+  box-shadow: 0 8px 20px rgba(109, 40, 217, 0.45);
+}
+
+.jagged-banner {
+  background: linear-gradient(90deg, #6d28d9, #7c3aed);
+  clip-path: polygon(0 18%, 4% 0, 96% 0, 100% 18%, 100% 82%, 96% 100%, 4% 100%, 0 82%);
+}
+
+.product-stage {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  border-radius: 1rem;
+}
+
+.product-stage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%, transparent 0%, rgba(0,0,0,0.55) 78%);
+  pointer-events: none;
+}
+
+.theme-purple-tea { background: radial-gradient(circle at 50% 30%, #7c3aed, #16041f 70%); }
+.theme-amber-resin { background: radial-gradient(circle at 50% 30%, #f59e0b, #1a0b04 72%); }
+.theme-gold-garlic { background: radial-gradient(circle at 50% 30%, #ca8a04, #120b02 70%); }
+.theme-amber-cookie { background: radial-gradient(circle at 50% 30%, #d97706, #1c1006 70%); }
+.theme-cosmic { background: radial-gradient(circle at 50% 30%, #6d28d9, #020617 70%); }
+.theme-vault-gold { background: radial-gradient(circle at 50% 30%, #a16207, #09090b 70%); }
+.theme-candy { background: radial-gradient(circle at 50% 30%, #ec4899, #2b0620 70%); }
+.theme-diamond { background: radial-gradient(circle at 50% 30%, #67e8f9, #082f49 70%); }
+.theme-tropic { background: radial-gradient(circle at 50% 30%, #facc15, #14532d 70%); }
+.theme-patela-gold { background: radial-gradient(circle at 50% 30%, #d4af37, #0b0904 72%); }
+.theme-cali-gold { background: radial-gradient(circle at 50% 30%, #f5b942, #1a1204 70%); }
+.theme-hash-cream { background: radial-gradient(circle at 50% 30%, #fbcfe8, #3f1d2b 70%); }
+.theme-hash-og { background: radial-gradient(circle at 50% 30%, #84cc16, #052e16 70%); }
+.theme-hash-organic { background: radial-gradient(circle at 50% 30%, #4ade80, #052e16 70%); }
+.theme-hash-lemon { background: radial-gradient(circle at 50% 30%, #fde047, #1c1917 70%); }
+.theme-hash-honey { background: radial-gradient(circle at 50% 30%, #fbbf24, #431407 70%); }
+.theme-hash-temple { background: radial-gradient(circle at 50% 30%, #a78bfa, #1e1b4b 70%); }
+.theme-piatella { background: radial-gradient(circle at 50% 30%, #facc15, #111827 70%); }
+.theme-orange-resin { background: radial-gradient(circle at 50% 30%, #fb923c, #1c0a04 70%); }
+.theme-green-hash { background: radial-gradient(circle at 50% 30%, #22c55e, #052e16 70%); }
+.theme-purple-liquid { background: radial-gradient(circle at 50% 30%, #c026d3, #2e1065 70%); }
+.theme-berry { background: radial-gradient(circle at 50% 30%, #fb7185, #4c0519 70%); }
+.theme-citrus { background: radial-gradient(circle at 50% 30%, #facc15, #422006 70%); }
+.theme-banana { background: radial-gradient(circle at 50% 30%, #fde047, #422006 70%); }
+.theme-cake { background: radial-gradient(circle at 50% 30%, #f9a8d4, #3b0764 70%); }
+.theme-purple-resin { background: radial-gradient(circle at 50% 30%, #a855f7, #2e1065 70%); }
+.theme-ice { background: radial-gradient(circle at 50% 30%, #67e8f9, #0f172a 70%); }
+.theme-haze { background: radial-gradient(circle at 50% 30%, #86efac, #14532d 70%); }
+.theme-mint { background: radial-gradient(circle at 50% 30%, #4ade80, #022c22 70%); }
+.theme-sunset { background: radial-gradient(circle at 50% 30%, #fb7185, #7c2d12 70%); }
+.theme-coast { background: radial-gradient(circle at 50% 30%, #38bdf8, #0c4a6e 70%); }
+.theme-desert { background: radial-gradient(circle at 50% 30%, #f97316, #431407 70%); }
+.theme-peach { background: radial-gradient(circle at 50% 30%, #fdba74, #7c2d12 70%); }
+.theme-spice { background: radial-gradient(circle at 50% 30%, #d97706, #431407 70%); }
+.theme-moon { background: radial-gradient(circle at 50% 30%, #818cf8, #1e1b4b 70%); }
+.theme-flower { background: radial-gradient(circle at 50% 30%, #4ade80, #052e16 70%); }
+.theme-steel { background: radial-gradient(circle at 50% 30%, #94a3b8, #020617 70%); }
+.theme-manchester { background: radial-gradient(circle at 50% 30%, #d4af37, #09090b 72%); }
+.theme-ancient-gold { background: radial-gradient(circle at 50% 30%, #d4af37, #1c1917 70%); }
+.theme-pluto { background: radial-gradient(circle at 50% 30%, #a855f7, #0f172a 70%); }
+.theme-empire { background: radial-gradient(circle at 50% 30%, #f87171, #1c1917 70%); }
+
+.gold-frame {
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  box-shadow: inset 0 0 0 4px rgba(12, 10, 4, 0.9), 0 0 40px rgba(212, 175, 55, 0.16);
+}
+
+.exclusive-steps span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 9.5rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  background: rgba(212, 175, 55, 0.08);
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+@media (max-width: 768px) {
+  .price-ribbon { left: 10px; clip-path: none; border-radius: 999px; }
 }
